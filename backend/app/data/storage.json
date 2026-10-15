@@ -1,0 +1,1732 @@
+{
+  "domains": [
+    {
+      "domain": "acme-defense.io",
+      "verified": true,
+      "lastScanned": "2026-10-14T18:45:00Z",
+      "assetCount": 14,
+      "criticalCount": 4,
+      "riskScore": 78
+    },
+    {
+      "domain": "cloudfin-systems.net",
+      "verified": true,
+      "lastScanned": "2026-10-13T11:20:00Z",
+      "assetCount": 8,
+      "criticalCount": 1,
+      "riskScore": 42
+    },
+    {
+      "domain": "nexus-infra.org",
+      "verified": false,
+      "lastScanned": "2026-10-12T09:15:00Z",
+      "assetCount": 6,
+      "criticalCount": 2,
+      "riskScore": 64
+    },
+    {
+      "domain": "target-corp.com",
+      "verified": true,
+      "lastScanned": "2026-10-15T16:27:36.063231+00:00",
+      "assetCount": 0,
+      "criticalCount": 0,
+      "riskScore": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "ast-01",
+      "domain": "acme-defense.io",
+      "asset": "vpn.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.24",
+      "ports": [
+        443,
+        8443,
+        1194
+      ],
+      "services": [
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Ivanti Connect Secure 9.1R14",
+          "product": "Ivanti Gateway",
+          "banner": null
+        },
+        {
+          "port": 8443,
+          "name": "admin-ssl",
+          "protocol": "tcp",
+          "version": "Apache 2.4.41",
+          "product": "Web Admin",
+          "banner": null
+        },
+        {
+          "port": 1194,
+          "name": "openvpn",
+          "protocol": "udp",
+          "version": "OpenVPN 2.5.1",
+          "product": "OpenVPN Daemon",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Ivanti Connect Secure",
+        "OpenSSL 1.1.1u",
+        "Apache 2.4.41"
+      ],
+      "riskScore": 94,
+      "severity": "critical",
+      "lastSeen": "2026-10-14T21:30:00Z",
+      "status": "active",
+      "cveCount": 3,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Ashburn",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS EC2"
+      },
+      "reputation": {
+        "maliciousScore": 82,
+        "virustotalDetections": 4,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 78,
+        "threatTags": [
+          "known-vpn-target",
+          "cve-active-exploit"
+        ],
+        "blacklisted": true
+      },
+      "history": [
+        {
+          "timestamp": "2026-10-14T20:04:00Z",
+          "event": "Service scan detected open listening port 443 with Ivanti signature.",
+          "type": "port",
+          "severity": "high"
+        },
+        {
+          "timestamp": "2026-10-14T20:05:12Z",
+          "event": "CVE-2024-3400 correlated from NVD database with CISA KEV active status.",
+          "type": "vuln",
+          "severity": "critical"
+        },
+        {
+          "timestamp": "2026-10-14T19:40:00Z",
+          "event": "VirusTotal threat intelligence check: 4 detections across 92 security engines.",
+          "type": "reputation",
+          "severity": "high"
+        },
+        {
+          "timestamp": "2026-10-13T14:10:00Z",
+          "event": "Authoritative DNS resolution confirmed A record mapping to IP.",
+          "type": "dns",
+          "severity": "info"
+        }
+      ]
+    },
+    {
+      "id": "ast-02",
+      "domain": "acme-defense.io",
+      "asset": "api.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.52",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Envoy Proxy 1.28.0",
+          "product": "Envoy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Envoy Proxy 1.28.0",
+          "product": "Envoy Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Envoy Proxy 1.28.0",
+        "Node.js 20.10.0",
+        "Express",
+        "Cloudflare CDN"
+      ],
+      "riskScore": 28,
+      "severity": "low",
+      "lastSeen": "2026-10-14T21:40:00Z",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "San Jose",
+        "asn": "AS13335 Cloudflare",
+        "isp": "Cloudflare"
+      },
+      "reputation": {
+        "maliciousScore": 2,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 0,
+        "threatTags": [
+          "clean"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-03",
+      "domain": "acme-defense.io",
+      "asset": "auth.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.89",
+      "ports": [
+        443
+      ],
+      "services": [
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Keycloak 22.0.4",
+          "product": "Keycloak IAM",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Keycloak 22.0.4",
+        "Java OpenJDK 17",
+        "PostgreSQL 15",
+        "Nginx 1.24"
+      ],
+      "riskScore": 54,
+      "severity": "medium",
+      "lastSeen": "2026-10-14T20:15:00Z",
+      "status": "active",
+      "cveCount": 1,
+      "dnsRecords": null,
+      "location": {
+        "country": "Germany",
+        "countryCode": "DE",
+        "city": "Frankfurt",
+        "asn": "AS24940 Hetzner Online",
+        "isp": "Hetzner"
+      },
+      "reputation": {
+        "maliciousScore": 12,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "auth-portal"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-04",
+      "domain": "acme-defense.io",
+      "asset": "dev-k8s.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.110",
+      "ports": [
+        6443,
+        2379,
+        10250
+      ],
+      "services": [
+        {
+          "port": 6443,
+          "name": "kube-apiserver",
+          "protocol": "tcp",
+          "version": "Kubernetes v1.27.3",
+          "product": "Kubernetes API",
+          "banner": null
+        },
+        {
+          "port": 2379,
+          "name": "etcd",
+          "protocol": "tcp",
+          "version": "etcd 3.5.7",
+          "product": "etcd cluster",
+          "banner": null
+        },
+        {
+          "port": 10250,
+          "name": "kubelet",
+          "protocol": "tcp",
+          "version": "Kubelet API",
+          "product": "Kubelet",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Kubernetes 1.27.3",
+        "etcd 3.5.7",
+        "containerd 1.7.2"
+      ],
+      "riskScore": 91,
+      "severity": "critical",
+      "lastSeen": "2026-10-14T21:10:00Z",
+      "status": "active",
+      "cveCount": 2,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Seattle",
+        "asn": "AS8075 Microsoft Corp",
+        "isp": "Azure Cloud"
+      },
+      "reputation": {
+        "maliciousScore": 68,
+        "virustotalDetections": 3,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 65,
+        "threatTags": [
+          "exposed-control-plane"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-05",
+      "domain": "acme-defense.io",
+      "asset": "staging.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.14",
+      "ports": [
+        80,
+        443,
+        3000,
+        8080
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Apache 2.4.52",
+          "product": "Apache HTTPD",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Apache 2.4.52",
+          "product": "Apache HTTPD",
+          "banner": null
+        },
+        {
+          "port": 3000,
+          "name": "grafana",
+          "protocol": "tcp",
+          "version": "Grafana 10.1.2",
+          "product": "Grafana Dashboard",
+          "banner": null
+        },
+        {
+          "port": 8080,
+          "name": "jenkins",
+          "protocol": "tcp",
+          "version": "Jenkins 2.441",
+          "product": "Jenkins CI",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Grafana 10.1.2",
+        "Jenkins 2.441",
+        "Apache 2.4.52",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 76,
+      "severity": "high",
+      "lastSeen": "2026-10-14T19:50:00Z",
+      "status": "active",
+      "cveCount": 2,
+      "dnsRecords": null,
+      "location": {
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "city": "London",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS EC2"
+      },
+      "reputation": {
+        "maliciousScore": 45,
+        "virustotalDetections": 1,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 40,
+        "threatTags": [
+          "exposed-ci-cd"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-06",
+      "domain": "acme-defense.io",
+      "asset": "mail.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.99",
+      "ports": [
+        25,
+        465,
+        587,
+        993
+      ],
+      "services": [
+        {
+          "port": 25,
+          "name": "smtp",
+          "protocol": "tcp",
+          "version": "Postfix 3.6.4",
+          "product": "Postfix MTA",
+          "banner": null
+        },
+        {
+          "port": 465,
+          "name": "smtps",
+          "protocol": "tcp",
+          "version": "Postfix 3.6.4",
+          "product": "Postfix MTA",
+          "banner": null
+        },
+        {
+          "port": 587,
+          "name": "submission",
+          "protocol": "tcp",
+          "version": "Postfix 3.6.4",
+          "product": "Postfix MTA",
+          "banner": null
+        },
+        {
+          "port": 993,
+          "name": "imaps",
+          "protocol": "tcp",
+          "version": "Dovecot 2.3.16",
+          "product": "Dovecot IMAP",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Postfix 3.6.4",
+        "Dovecot 2.3.16",
+        "OpenSSL 3.0.2"
+      ],
+      "riskScore": 48,
+      "severity": "medium",
+      "lastSeen": "2026-10-14T18:20:00Z",
+      "status": "active",
+      "cveCount": 1,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Reston",
+        "asn": "AS14618 Amazon.com",
+        "isp": "AWS EC2"
+      },
+      "reputation": {
+        "maliciousScore": 5,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 0,
+        "threatTags": [
+          "mail-relay"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-07",
+      "domain": "acme-defense.io",
+      "asset": "db-replica.internal.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.177",
+      "ports": [
+        5432
+      ],
+      "services": [
+        {
+          "port": 5432,
+          "name": "postgresql",
+          "protocol": "tcp",
+          "version": "PostgreSQL 14.9",
+          "product": "PostgreSQL",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "PostgreSQL 14.9",
+        "pgpool-II",
+        "Debian Linux 11"
+      ],
+      "riskScore": 88,
+      "severity": "critical",
+      "lastSeen": "2026-10-14T21:42:00Z",
+      "status": "active",
+      "cveCount": 1,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Ashburn",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS EC2"
+      },
+      "reputation": {
+        "maliciousScore": 30,
+        "virustotalDetections": 1,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 35,
+        "threatTags": [
+          "exposed-database"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-08",
+      "domain": "acme-defense.io",
+      "asset": "cdn-origin.acme-defense.io",
+      "type": "subdomain",
+      "ip": "198.51.100.201",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx 1.25.3",
+          "product": "Nginx",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Nginx 1.25.3",
+          "product": "Nginx",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx 1.25.3",
+        "Fastly CDN",
+        "Varnish Cache"
+      ],
+      "riskScore": 22,
+      "severity": "low",
+      "lastSeen": "2026-10-14T21:15:00Z",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "San Francisco",
+        "asn": "AS54113 Fastly",
+        "isp": "Fastly"
+      },
+      "reputation": {
+        "maliciousScore": 0,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 0,
+        "threatTags": [
+          "clean"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-09",
+      "domain": "cloudfin-systems.net",
+      "asset": "gateway.cloudfin-systems.net",
+      "type": "subdomain",
+      "ip": "203.0.113.10",
+      "ports": [
+        443,
+        8080
+      ],
+      "services": [
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Kong API Gateway 3.4.1",
+          "product": "Kong",
+          "banner": null
+        },
+        {
+          "port": 8080,
+          "name": "http-proxy",
+          "protocol": "tcp",
+          "version": "Kong API Gateway 3.4.1",
+          "product": "Kong",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Kong Gateway 3.4.1",
+        "OpenResty",
+        "LuaJIT"
+      ],
+      "riskScore": 34,
+      "severity": "low",
+      "lastSeen": "2026-10-13T10:30:00Z",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "Singapore",
+        "countryCode": "SG",
+        "city": "Singapore",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS Ap-Southeast-1"
+      },
+      "reputation": {
+        "maliciousScore": 0,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 0,
+        "threatTags": [
+          "clean"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-10",
+      "domain": "cloudfin-systems.net",
+      "asset": "legacy-portal.cloudfin-systems.net",
+      "type": "subdomain",
+      "ip": "203.0.113.88",
+      "ports": [
+        80,
+        443,
+        8000
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Apache Tomcat 9.0.43",
+          "product": "Tomcat",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "Apache Tomcat 9.0.43",
+          "product": "Tomcat",
+          "banner": null
+        },
+        {
+          "port": 8000,
+          "name": "http-alt",
+          "protocol": "tcp",
+          "version": "Spring Boot 2.5.4",
+          "product": "Spring Actuator",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Apache Tomcat 9.0.43",
+        "Spring Framework 5.3.9",
+        "Java 11",
+        "Spring Actuator"
+      ],
+      "riskScore": 86,
+      "severity": "high",
+      "lastSeen": "2026-10-13T11:00:00Z",
+      "status": "active",
+      "cveCount": 2,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Dallas",
+        "asn": "AS20001 TierPoint",
+        "isp": "TierPoint LLC"
+      },
+      "reputation": {
+        "maliciousScore": 55,
+        "virustotalDetections": 2,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 48,
+        "threatTags": [
+          "exposed-actuator",
+          "cve-susceptible"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-11",
+      "domain": "nexus-infra.org",
+      "asset": "ns1.nexus-infra.org",
+      "type": "subdomain",
+      "ip": "192.0.2.53",
+      "ports": [
+        53
+      ],
+      "services": [
+        {
+          "port": 53,
+          "name": "domain",
+          "protocol": "udp",
+          "version": "BIND 9.16.1",
+          "product": "BIND DNS",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "BIND 9.16.1",
+        "Ubuntu 20.04 LTS"
+      ],
+      "riskScore": 62,
+      "severity": "medium",
+      "lastSeen": "2026-10-12T09:00:00Z",
+      "status": "active",
+      "cveCount": 1,
+      "dnsRecords": null,
+      "location": {
+        "country": "Netherlands",
+        "countryCode": "NL",
+        "city": "Amsterdam",
+        "asn": "AS1103 SURF B.V.",
+        "isp": "SURF B.V."
+      },
+      "reputation": {
+        "maliciousScore": 15,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 10,
+        "threatTags": [
+          "open-resolver-risk"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-12",
+      "domain": "nexus-infra.org",
+      "asset": "vault.nexus-infra.org",
+      "type": "subdomain",
+      "ip": "192.0.2.140",
+      "ports": [
+        8200
+      ],
+      "services": [
+        {
+          "port": 8200,
+          "name": "hashicorp-vault",
+          "protocol": "tcp",
+          "version": "HashiCorp Vault 1.13.1",
+          "product": "Vault",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "HashiCorp Vault 1.13.1",
+        "Consul 1.14",
+        "Alpine Linux"
+      ],
+      "riskScore": 89,
+      "severity": "critical",
+      "lastSeen": "2026-10-12T09:10:00Z",
+      "status": "active",
+      "cveCount": 1,
+      "dnsRecords": null,
+      "location": {
+        "country": "Switzerland",
+        "countryCode": "CH",
+        "city": "Zurich",
+        "asn": "AS13030 Swisscom",
+        "isp": "Swisscom"
+      },
+      "reputation": {
+        "maliciousScore": 42,
+        "virustotalDetections": 1,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 38,
+        "threatTags": [
+          "exposed-secrets-engine"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-192a76",
+      "domain": "target-corp.com",
+      "asset": "admin.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:06.766048+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-9fff8a",
+      "domain": "target-corp.com",
+      "asset": "api.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:06.852328+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-316c77",
+      "domain": "target-corp.com",
+      "asset": "auth.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:08.024900+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-f991ad",
+      "domain": "target-corp.com",
+      "asset": "cdn.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:08.530168+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-b2442f",
+      "domain": "target-corp.com",
+      "asset": "cloud.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:18.236714+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    },
+    {
+      "id": "ast-830b5a",
+      "domain": "target-corp.com",
+      "asset": "dev.target-corp.com",
+      "type": "subdomain",
+      "ip": "205.178.189.129",
+      "ports": [
+        80,
+        443
+      ],
+      "services": [
+        {
+          "port": 80,
+          "name": "http",
+          "protocol": "tcp",
+          "version": "Nginx / Cloudflare",
+          "product": "Reverse Proxy",
+          "banner": null
+        },
+        {
+          "port": 443,
+          "name": "https",
+          "protocol": "tcp",
+          "version": "TLS 1.3 / OpenSSL",
+          "product": "Web Gateway",
+          "banner": null
+        }
+      ],
+      "technologies": [
+        "Nginx",
+        "TLS 1.3",
+        "Ubuntu 22.04"
+      ],
+      "riskScore": 35,
+      "severity": "low",
+      "lastSeen": "2026-10-15T16:28:19.770877+00:00",
+      "status": "active",
+      "cveCount": 0,
+      "dnsRecords": null,
+      "location": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Washington",
+        "asn": "AS16509 Amazon.com",
+        "isp": "AWS"
+      },
+      "reputation": {
+        "maliciousScore": 10,
+        "virustotalDetections": 0,
+        "virustotalTotalEngines": 92,
+        "abuseIpConfidence": 5,
+        "threatTags": [
+          "newly-scanned"
+        ],
+        "blacklisted": false
+      },
+      "history": null
+    }
+  ],
+  "cves": [
+    {
+      "id": "CVE-2024-3400",
+      "title": "Ivanti / PAN-OS Command Injection in GlobalProtect Gateway",
+      "description": "A critical command injection vulnerability in GlobalProtect gateway feature enables an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.",
+      "cvss": 10.0,
+      "severity": "critical",
+      "epss": 0.974,
+      "cisaKev": true,
+      "affectedProduct": "PAN-OS GlobalProtect / Ivanti Connect Secure",
+      "affectedVendor": "Palo Alto Networks / Ivanti",
+      "affectedVersion": "9.1R14 and earlier",
+      "fixRecommendation": "Apply vendor emergency hotfix immediately or disable device telemetry until patched.",
+      "publishedDate": "2024-04-12",
+      "affectedAssetsCount": 1,
+      "affectedAssetIds": [
+        "ast-01"
+      ],
+      "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-3400",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      ]
+    },
+    {
+      "id": "CVE-2024-3094",
+      "title": "XZ Utils Embedded Malicious Backdoor in liblzma",
+      "description": "Malicious code was embedded in upstream release tarballs of xz-utils starting with version 5.6.0, affecting OpenSSH sshd authentication through systemd integration.",
+      "cvss": 10.0,
+      "severity": "critical",
+      "epss": 0.941,
+      "cisaKev": true,
+      "affectedProduct": "liblzma / xz-utils",
+      "affectedVendor": "Tukaani Project / Linux distros",
+      "affectedVersion": "5.6.0 - 5.6.1",
+      "fixRecommendation": "Downgrade xz-utils packages immediately to version 5.4.x or rebuild against known clean sources.",
+      "publishedDate": "2024-03-29",
+      "affectedAssetsCount": 2,
+      "affectedAssetIds": [
+        "ast-04",
+        "ast-05"
+      ],
+      "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-3094",
+        "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3094"
+      ]
+    },
+    {
+      "id": "CVE-2024-21626",
+      "title": "runc Leaked File Descriptor Container Breakout",
+      "description": "An issue in runc allows a malicious container to gain unauthorized access to the host filesystem through leaked file descriptors during container execution.",
+      "cvss": 8.6,
+      "severity": "high",
+      "epss": 0.812,
+      "cisaKev": true,
+      "affectedProduct": "runc container runtime",
+      "affectedVendor": "Open Containers Initiative",
+      "affectedVersion": "<= 1.1.11",
+      "fixRecommendation": "Upgrade container runtime node packages to runc 1.1.12 or newer.",
+      "publishedDate": "2024-01-31",
+      "affectedAssetsCount": 1,
+      "affectedAssetIds": [
+        "ast-04"
+      ],
+      "cvssVector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "references": [
+        "https://github.com/opencontainers/runc/security/advisories/GHSA-xr7r-f8xq-vfvv"
+      ]
+    },
+    {
+      "id": "CVE-2023-48795",
+      "title": "Terrapin Attack: SSH Protocol Prefix Truncation Vulnerability",
+      "description": "A flaw in the SSH transport protocol allows a man-in-the-middle attacker to truncate extension negotiation messages, disabling keystroke timing obfuscation and security flags.",
+      "cvss": 5.9,
+      "severity": "medium",
+      "epss": 0.435,
+      "cisaKev": false,
+      "affectedProduct": "OpenSSH / Dropbear SSH",
+      "affectedVendor": "OpenSSH",
+      "affectedVersion": "< 9.6p1",
+      "fixRecommendation": "Upgrade OpenSSH client and server to 9.6p1+ which implements the strict KEX extension.",
+      "publishedDate": "2023-12-18",
+      "affectedAssetsCount": 3,
+      "affectedAssetIds": [
+        "ast-01",
+        "ast-06",
+        "ast-10"
+      ],
+      "cvssVector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "references": [
+        "https://terrapin-attack.com/"
+      ]
+    },
+    {
+      "id": "CVE-2023-44487",
+      "title": "HTTP/2 Rapid Reset Denial of Service Vulnerability",
+      "description": "The HTTP/2 protocol allows a client to request a stream reset immediately using RST_STREAM frames, allowing massive DDoS amplification against web proxies and CDNs.",
+      "cvss": 7.5,
+      "severity": "high",
+      "epss": 0.887,
+      "cisaKev": true,
+      "affectedProduct": "HTTP/2 Protocol Stack / Envoy / Nginx",
+      "affectedVendor": "IETF / Web Server Implementations",
+      "affectedVersion": "All unpatched HTTP/2 servers",
+      "fixRecommendation": "Enable HTTP/2 stream reset rate limiting in reverse proxies and web application firewalls.",
+      "publishedDate": "2023-10-10",
+      "affectedAssetsCount": 2,
+      "affectedAssetIds": [
+        "ast-02",
+        "ast-08"
+      ],
+      "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "references": [
+        "https://cloud.google.com/blog/products/identity-security/how-google-handled-the-largest-ddos-attack"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alt-01",
+      "title": "Active CISA KEV Exploit Observed on Edge Gateway",
+      "message": "Known exploitation traffic targeting CVE-2024-3400 was detected targeting vpn.acme-defense.io:443.",
+      "severity": "critical",
+      "status": "new",
+      "timestamp": "2026-10-14T21:45:00Z",
+      "category": "cve",
+      "targetAsset": "vpn.acme-defense.io"
+    },
+    {
+      "id": "alt-02",
+      "title": "Kubernetes API Server Port 6443 Exposed to Public Internet",
+      "message": "dev-k8s.acme-defense.io has control plane port 6443 open with unauthenticated discovery endpoints reachable.",
+      "severity": "critical",
+      "status": "new",
+      "timestamp": "2026-10-14T21:12:00Z",
+      "category": "exposure",
+      "targetAsset": "dev-k8s.acme-defense.io"
+    },
+    {
+      "id": "alt-03",
+      "title": "PostgreSQL Port 5432 Direct Internet Exposure",
+      "message": "Database port 5432 on db-replica.internal.acme-defense.io is listening publicly on 198.51.100.177.",
+      "severity": "critical",
+      "status": "acknowledged",
+      "timestamp": "2026-10-14T20:50:00Z",
+      "category": "exposure",
+      "targetAsset": "db-replica.internal.acme-defense.io"
+    },
+    {
+      "id": "alt-04",
+      "title": "New High EPSS Vulnerability Correlated (CVE-2024-21626)",
+      "message": "Container breakout CVE-2024-21626 has reached 81.2% exploit probability and matches runc on your worker nodes.",
+      "severity": "high",
+      "status": "new",
+      "timestamp": "2026-10-14T19:25:00Z",
+      "category": "cve",
+      "targetAsset": "dev-k8s.acme-defense.io"
+    },
+    {
+      "id": "alt-05",
+      "title": "CI/CD Staging Dashboard Accessible Without SSO",
+      "message": "Jenkins 2.441 instance on staging.acme-defense.io:8080 allows anonymous project configuration view.",
+      "severity": "high",
+      "status": "acknowledged",
+      "timestamp": "2026-10-14T17:40:00Z",
+      "category": "exposure",
+      "targetAsset": "staging.acme-defense.io"
+    },
+    {
+      "id": "alt-06",
+      "title": "Corporate Credentials Discovered in Infostealer Log Leak",
+      "message": "3 employee email accounts for acme-defense.io appeared in RedLine stealer telemetry dump.",
+      "severity": "high",
+      "status": "new",
+      "timestamp": "2026-10-14T16:10:00Z",
+      "category": "breach",
+      "targetAsset": "acme-defense.io"
+    },
+    {
+      "id": "alt-07",
+      "title": "SSL Certificate Expiration in 14 Days",
+      "message": "Wildcard certificate *.acme-defense.io issued by Let's Encrypt expires on 2026-10-29.",
+      "severity": "medium",
+      "status": "resolved",
+      "timestamp": "2026-10-14T12:00:00Z",
+      "category": "certificate",
+      "targetAsset": "api.acme-defense.io"
+    }
+  ],
+  "breaches": [
+    {
+      "id": "brc-01",
+      "domainOrEmail": "acme-defense.io",
+      "breachName": "RedLine Stealer Aggregated Telemetry",
+      "breachDate": "2026-09-28",
+      "dataExposed": [
+        "Corporate Emails",
+        "Browser Session Tokens",
+        "Autofill Data",
+        "System Fingerprints"
+      ],
+      "recommendedActions": [
+        "Force global SSO session termination for affected domain accounts.",
+        "Enforce FIDO2 hardware token multi-factor authentication.",
+        "Revoke legacy OAuth app access grants."
+      ],
+      "status": "active",
+      "pwnCount": 18
+    },
+    {
+      "id": "brc-02",
+      "domainOrEmail": "cloudfin-systems.net",
+      "breachName": "Financial Analytics Vendor SaaS Breach",
+      "breachDate": "2026-08-14",
+      "dataExposed": [
+        "Employee Names",
+        "Work Email Addresses",
+        "Encrypted Billing Metadata"
+      ],
+      "recommendedActions": [
+        "Audit third-party vendor API access keys.",
+        "Verify no sensitive customer telemetry was staged on vendor bucket."
+      ],
+      "status": "resolved",
+      "pwnCount": 6
+    },
+    {
+      "id": "brc-03",
+      "domainOrEmail": "secops@acme-defense.io",
+      "breachName": "Developer Portal Credential Stuffing Dump",
+      "breachDate": "2026-07-22",
+      "dataExposed": [
+        "Email Address",
+        "Scrambled Password Hashes",
+        "Username Handles"
+      ],
+      "recommendedActions": [
+        "Rotate primary developer portal authentication credentials.",
+        "Verify personal email addresses are not linked to production deployments."
+      ],
+      "status": "resolved",
+      "pwnCount": 1
+    },
+    {
+      "id": "brc-04",
+      "domainOrEmail": "nexus-infra.org",
+      "breachName": "Cloud Hosting Misconfiguration Scrape",
+      "breachDate": "2026-09-02",
+      "dataExposed": [
+        "Internal Hostnames",
+        "Dev Ops Documentation",
+        "Public SSH Keys"
+      ],
+      "recommendedActions": [
+        "Rotate all authorized SSH keys listed in repository.",
+        "Move all staging documentation behind Zero Trust Network Access (ZTNA)."
+      ],
+      "status": "active",
+      "pwnCount": 12
+    }
+  ],
+  "findings": [
+    {
+      "id": "fnd-01",
+      "title": "Patch Active RCE Vulnerability on Edge Gateway (CVE-2024-3400)",
+      "description": "Ivanti / PAN-OS gateway on vpn.acme-defense.io has active remote code execution vulnerability under in-the-wild exploitation.",
+      "actionSteps": [
+        "Deploy vendor patch or hotfix release to edge firewall immediately.",
+        "Verify device telemetry service is temporarily disabled.",
+        "Review firewall access logs for anomalous outgoing traffic to unknown IPs."
+      ],
+      "severity": "critical",
+      "assetId": "ast-01",
+      "assetName": "vpn.acme-defense.io",
+      "cveId": "CVE-2024-3400",
+      "status": "open",
+      "discoveredAt": "2026-10-14T20:05:00Z",
+      "cvssScore": 10.0
+    },
+    {
+      "id": "fnd-02",
+      "title": "Restrict Kubernetes Control Plane Port 6443 Behind Private VPN",
+      "description": "dev-k8s.acme-defense.io exposes port 6443 directly to the public internet.",
+      "actionSteps": [
+        "Configure cloud security group / firewall rules to restrict port 6443 to internal VPN CIDR ranges only.",
+        "Enforce mTLS client certificate authentication and disable anonymous cluster discovery.",
+        "Audit auditd / apiserver audit logs for unauthorized scanning probes."
+      ],
+      "severity": "critical",
+      "assetId": "ast-04",
+      "assetName": "dev-k8s.acme-defense.io",
+      "cveId": "CVE-2024-21626",
+      "status": "open",
+      "discoveredAt": "2026-10-14T21:10:00Z",
+      "cvssScore": 8.6
+    },
+    {
+      "id": "fnd-03",
+      "title": "Close Public Database Listener on Port 5432",
+      "description": "PostgreSQL database port 5432 on db-replica.internal.acme-defense.io is accepting connections from any IP.",
+      "actionSteps": [
+        "Update pg_hba.conf to whitelist application backend subnet IPs only.",
+        "Add AWS Security Group rule dropping all inbound traffic on port 5432 from 0.0.0.0/0.",
+        "Ensure SSL/TLS connection encryption is strictly enforced for all database clients."
+      ],
+      "severity": "critical",
+      "assetId": "ast-07",
+      "assetName": "db-replica.internal.acme-defense.io",
+      "cveId": null,
+      "status": "open",
+      "discoveredAt": "2026-10-14T21:42:00Z",
+      "cvssScore": 9.2
+    },
+    {
+      "id": "fnd-04",
+      "title": "Enforce Zero Trust Authentication on Staging CI/CD Services",
+      "description": "Jenkins CI and Grafana dashboards are exposed on ports 8080 and 3000 on staging.acme-defense.io.",
+      "actionSteps": [
+        "Place staging environment behind Cloudflare Access or Okta ZTNA tunnel.",
+        "Disable guest or anonymous read permissions in Jenkins security configuration.",
+        "Require company Google/SAML SSO for all developer monitoring dashboards."
+      ],
+      "severity": "high",
+      "assetId": "ast-05",
+      "assetName": "staging.acme-defense.io",
+      "cveId": null,
+      "status": "open",
+      "discoveredAt": "2026-10-14T19:50:00Z",
+      "cvssScore": 7.5
+    },
+    {
+      "id": "fnd-05",
+      "title": "Upgrade Spring Actuator Endpoint on Legacy Customer Portal",
+      "description": "Spring Actuator on legacy-portal.cloudfin-systems.net:8000 exposes internal environment variables and heapdump endpoints.",
+      "actionSteps": [
+        "Disable management.endpoints.web.exposure.include=* in application.properties.",
+        "Upgrade Spring Boot runtime to latest LTS release.",
+        "Require administrative bearer tokens for all /actuator health and metrics paths."
+      ],
+      "severity": "high",
+      "assetId": "ast-10",
+      "assetName": "legacy-portal.cloudfin-systems.net",
+      "cveId": null,
+      "status": "open",
+      "discoveredAt": "2026-10-13T11:00:00Z",
+      "cvssScore": 7.8
+    }
+  ],
+  "api_keys": [
+    {
+      "id": "key-3bcc4081",
+      "name": "Test Automation Key",
+      "keyMasked": "sn_live_562c\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022edda",
+      "prefix": "sn_live",
+      "fullKey": "sn_live_562c9e418031c662fa9fc2f6d527edda",
+      "role": "Admin",
+      "createdAt": "2026-10-15T16:23:50.096748+00:00",
+      "lastUsed": "Never",
+      "scopes": [
+        "read:assets",
+        "write:scans"
+      ]
+    },
+    {
+      "id": "key-01",
+      "name": "Production SIEM Ingestion Daemon",
+      "keyMasked": "sn_live_a89f\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u20224c12",
+      "prefix": "sn_live",
+      "fullKey": null,
+      "role": "Admin",
+      "createdAt": "2026-09-15T14:30:00Z",
+      "lastUsed": "2 minutes ago",
+      "scopes": [
+        "read:assets",
+        "read:cves",
+        "write:scans",
+        "read:reports"
+      ]
+    },
+    {
+      "id": "key-02",
+      "name": "CI/CD Pipeline Scanner Integration",
+      "keyMasked": "sn_live_d34e\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u202289b1",
+      "prefix": "sn_live",
+      "fullKey": null,
+      "role": "Analyst",
+      "createdAt": "2026-10-01T09:12:00Z",
+      "lastUsed": "3 hours ago",
+      "scopes": [
+        "read:assets",
+        "write:scans"
+      ]
+    }
+  ],
+  "data_sources": [
+    {
+      "id": "src-shodan",
+      "name": "Shodan Threat Intelligence",
+      "service": "shodan",
+      "apiKey": "sh_api_982348a9f2bc8912e",
+      "connected": true,
+      "status": "active",
+      "lastChecked": "2026-10-14T21:00:00Z"
+    },
+    {
+      "id": "src-virustotal",
+      "name": "VirusTotal Enterprise",
+      "service": "virustotal",
+      "apiKey": "vt_live_77263bda994e10",
+      "connected": true,
+      "status": "active",
+      "lastChecked": "2026-10-14T20:30:00Z"
+    },
+    {
+      "id": "src-censys",
+      "name": "Censys Attack Surface Engine",
+      "service": "censys",
+      "apiKey": "",
+      "connected": false,
+      "status": "unconfigured",
+      "lastChecked": null
+    },
+    {
+      "id": "src-hibp",
+      "name": "Have I Been Pwned Enterprise",
+      "service": "hibp",
+      "apiKey": "hibp_sec_44819aa93",
+      "connected": true,
+      "status": "active",
+      "lastChecked": "2026-10-14T18:00:00Z"
+    },
+    {
+      "id": "src-alienvault",
+      "name": "AlienVault OTX Community",
+      "service": "alienvault",
+      "apiKey": "",
+      "connected": false,
+      "status": "unconfigured",
+      "lastChecked": null
+    }
+  ],
+  "team_members": [
+    {
+      "id": "usr-01",
+      "name": "Alex Mercer (You)",
+      "email": "alex.mercer@sentra.internal",
+      "role": "Admin",
+      "status": "active",
+      "twoFactorEnabled": true,
+      "lastActive": "Just now"
+    },
+    {
+      "id": "usr-02",
+      "name": "Priya Sharma",
+      "email": "priya.sharma@sentra.internal",
+      "role": "Analyst",
+      "status": "active",
+      "twoFactorEnabled": true,
+      "lastActive": "15 minutes ago"
+    },
+    {
+      "id": "usr-03",
+      "name": "David Lindqvist",
+      "email": "david.lindqvist@sentra.internal",
+      "role": "Viewer",
+      "status": "pending",
+      "twoFactorEnabled": false,
+      "lastActive": "Invitation sent"
+    }
+  ],
+  "notification_channels": [
+    {
+      "channel": "email",
+      "enabled": true,
+      "destination": "secops-alerts@acme-defense.io",
+      "categories": [
+        "cve",
+        "exposure",
+        "breach",
+        "certificate"
+      ]
+    },
+    {
+      "channel": "slack",
+      "enabled": true,
+      "destination": "#secops-urgent-alerts (Incoming Webhook)",
+      "categories": [
+        "cve",
+        "exposure",
+        "breach"
+      ]
+    },
+    {
+      "channel": "telegram",
+      "enabled": true,
+      "destination": "@sentra_emergency_bot",
+      "categories": [
+        "cve",
+        "exposure"
+      ]
+    },
+    {
+      "channel": "whatsapp",
+      "enabled": false,
+      "destination": "+1 (555) 912-8821",
+      "categories": [
+        "cve"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "id": "rep-01",
+      "title": "CERT-In Statutory Incident Disclosure - Ivanti Edge Exploitation",
+      "type": "cert-in",
+      "status": "submitted",
+      "generatedAt": "2026-10-14T21:40:00Z",
+      "targetDomain": "acme-defense.io",
+      "findingsCount": 3,
+      "fileFormat": "stix",
+      "incidentDescription": "Active malicious probes and exploitation attempts conforming to CISA KEV CVE-2024-3400 detected against corporate VPN gateway.",
+      "evidenceAttachments": [
+        {
+          "id": "att-01",
+          "name": "vpn_access_log_snippet.log",
+          "size": "48.2 KB",
+          "timestamp": "2026-10-14T21:35:00Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "att-02",
+          "name": "shodan_service_signature.json",
+          "size": "12.8 KB",
+          "timestamp": "2026-10-14T21:38:00Z",
+          "sha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+        }
+      ],
+      "selectedAssetIds": [
+        "ast-01",
+        "ast-04",
+        "ast-07"
+      ],
+      "selectedFindingIds": [
+        "fnd-01",
+        "fnd-02",
+        "fnd-03"
+      ],
+      "sha256Hash": "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
+      "auditLog": [
+        {
+          "action": "Report Generated & Cryptographically Stamped",
+          "user": "SecOps Analyst (You)",
+          "timestamp": "2026-10-14T21:40:00Z",
+          "hash": "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
+        },
+        {
+          "action": "Submitted to CERT-In Incident Reporting Portal",
+          "user": "Automated Dispatch Service",
+          "timestamp": "2026-10-14T21:42:15Z",
+          "hash": "7d793037a0760186574b0282f2f435e70ec0150c005c9d83800fa1e1a9d83061"
+        }
+      ]
+    },
+    {
+      "id": "rep-02",
+      "title": "Quarterly Executive Attack Surface Risk Summary",
+      "type": "executive",
+      "status": "exported",
+      "generatedAt": "2026-10-12T16:00:00Z",
+      "targetDomain": "cloudfin-systems.net",
+      "findingsCount": 2,
+      "fileFormat": "pdf",
+      "incidentDescription": "Quarterly comprehensive risk profile assessing edge exposure, credential exposure, and software patch currency.",
+      "evidenceAttachments": [],
+      "selectedAssetIds": [
+        "ast-09",
+        "ast-10"
+      ],
+      "selectedFindingIds": [
+        "fnd-05"
+      ],
+      "sha256Hash": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+      "auditLog": [
+        {
+          "action": "Report Generated & Cryptographically Stamped",
+          "user": "SecOps Analyst (You)",
+          "timestamp": "2026-10-12T16:00:00Z",
+          "hash": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4"
+        }
+      ]
+    }
+  ]
+}
