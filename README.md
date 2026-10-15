@@ -2,94 +2,147 @@
 
 > **"See your risk before attackers do"**
 
-Sentra is a modern, high-density cybersecurity reconnaissance and attack-surface monitoring platform built with React 19, TypeScript, Vite, Tailwind CSS, Recharts, React Flow (`@xyflow/react`), and TanStack Query.
+Sentra is a modern, high-density cybersecurity reconnaissance and attack-surface monitoring platform built with **React 19**, **TypeScript**, **Tailwind CSS**, **Recharts**, **React Flow** (`@xyflow/react`), and a **FastAPI** Python backend.
 
 ---
 
-## Brand Identity & Design System
+## ⚡ How to Implement & Run Sentra
 
-- **Brand Name**: Sentra
-- **Tagline**: *"See your risk before attackers do"*
-- **Wordmark**: Clean geometric sans-serif font (`Plus Jakarta Sans` / `Inter`), semi-bold, lowercase `sentra`, accompanied by a minimal geometric shield combined with an abstract scanning eye.
-- **Color Palette**:
-  - **Primary Accent**: Sentra Teal (`#14B8A6`)
-  - **Background**: Near-Black (`#0B0F14`)
-  - **Surfaces**: Elevated Slate Cards (`#101620`, `#151E2B`)
-  - **Severity Hierarchy**: Critical (`#EF4444`), High (`#F97316`), Medium (`#EAB308`), Low (`#3B82F6`), Info (`#64748B`).
-- **Typography**: Monospace (`JetBrains Mono`) for all IPs, domains, hashes, and CVE identifiers.
-- **Brand Assets**: Vector logo component at [`src/components/ui/SentraLogo.tsx`](file:///C:/Users/nanis/.gemini/antigravity/scratch/threatlens/src/components/ui/SentraLogo.tsx) and high-resolution artworks in [`public/brand/`](file:///C:/Users/nanis/.gemini/antigravity/scratch/threatlens/public/brand/).
+You can run Sentra either **locally in development mode** or with **Docker**.
+
+### 1. Run with Local Development Servers
+
+#### Terminal 1: Start FastAPI Backend (Port 8000)
+```bash
+# Navigate to the backend directory
+cd backend
+
+# Install dependencies (FastAPI, Uvicorn, Pydantic, Httpx)
+pip install -r requirements.txt
+
+# Start the server with hot-reloading
+python run.py
+```
+- API Base URL: `http://localhost:8000/api/v1`
+- Interactive Swagger Docs: `http://localhost:8000/docs`
+- Alternative ReDoc: `http://localhost:8000/redoc`
+
+#### Terminal 2: Start React Frontend (Port 3000)
+```bash
+# In the project root directory
+npm install
+
+# Start Vite dev server on port 3000
+npm run dev
+```
+- Web Application: `http://localhost:3000`
 
 ---
 
-## Tech Stack
+### 2. Switching Between Mock Mode and Real Backend
 
-- **Framework**: React 19 + TypeScript + Vite
-- **Styling**: Tailwind CSS + custom security operations components
-- **Visualization**: Recharts (Risk Gauges, 30-day Area Trends, Severity Donut)
-- **Topology**: `@xyflow/react` (Interactive Asset Relationship Node Graph)
-- **Routing & State**: React Router 7 + TanStack Query v5
-- **Unified API Client**: Exported as `sentraApi` from [`src/lib/api.ts`](file:///C:/Users/nanis/.gemini/antigravity/scratch/threatlens/src/lib/api.ts).
+Sentra features a single typed API client layer at [`src/lib/api.ts`](file:///C:/Users/nanis/.gemini/antigravity/scratch/threatlens/src/lib/api.ts).
 
----
+To route all UI components directly to the real FastAPI backend, edit [.env](file:///C:/Users/nanis/.gemini/antigravity/scratch/threatlens/.env):
 
-## Connecting a Real Backend (e.g. FastAPI / Python / Go)
-
-Sentra features a clean, single-point API abstraction layer. All components interact with the backend exclusively via `sentraApi` from `/lib/api.ts`.
-
-### 1. Environment Variables Configuration
-In your `.env` file:
 ```env
-# Switch to 'false' to route calls to the live REST API
+# Set to 'false' to use the real FastAPI backend
 VITE_USE_MOCKS=false
 
-# Specify your backend REST API base URL
+# Point to your running FastAPI instance
 VITE_SENTRA_API_BASE_URL=http://localhost:8000/api/v1
 ```
 
-### 2. Programmatic API Key Authentication
-All programmatic REST tokens use the mandatory prefix:
-- Production keys: `sn_live_xxxxxxxxxxxxxxxxxxxxxxxx`
-- Staging / Testing keys: `sn_test_xxxxxxxxxxxxxxxxxxxxxxxx`
-
-### 3. Backend REST Endpoint Specification
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/dashboard/metrics?domain={domain}` | Returns `DashboardMetrics` (risk score, counts, top fixes, alerts) |
-| `GET` | `/domains` | Returns list of monitored domains & verification status |
-| `GET` | `/assets?domain={domain}&search={q}&severity={sev}` | Returns paginated `{ assets: Asset[], total: number }` |
-| `GET` | `/assets/{id}` | Returns single `Asset` detail model with services & history |
-| `GET` | `/cves?search={q}&severity={sev}&kevOnly={bool}` | Returns correlated CVEs list with EPSS scores |
-| `GET` | `/cves/{id}` | Returns detailed CVE information and affected assets |
-| `GET` | `/alerts?status={status}` | Returns streaming alerts |
-| `PATCH` | `/alerts/{id}/status` | Updates alert triage status (`acknowledged`, `resolved`) |
-| `GET` | `/breaches` | Returns HaveIBeenPwned & dark web breach dumps |
-| `PATCH` | `/breaches/{id}/status` | Updates breach remediation status |
-| `GET` | `/scan/verify-info?domain={domain}` | Returns required DNS TXT verification token (`_sentra-verify`) |
-| `POST` | `/scan/verify` | Checks target DNS TXT propagation |
-| `POST` | `/scan/start` | Initiates passive OSINT or deep active scan job |
-| `GET` | `/scan/{id}` | Polls status of active scan job and data sources |
-| `GET` | `/reports` | Lists generated incident reports |
-| `POST` | `/reports` | Generates Executive, Technical, or CERT-In complaint report |
-| `GET` | `/settings/api-keys` | Lists active API keys (`sn_live_...`) |
-| `POST` | `/settings/api-keys` | Generates a new API key with "show once" token |
-| `DELETE` | `/settings/api-keys/{id}` | Revokes an API key |
-| `GET` | `/settings/data-sources` | Returns commercial API integration statuses |
-| `PUT` | `/settings/data-sources/{id}` | Configures custom BYOK API key (Shodan, VT, etc.) |
-| `GET` | `/settings/team` | Returns team members and access roles |
-| `POST` | `/settings/team/invite` | Invites team member (Admin, Analyst, Viewer) |
+*(Set `VITE_USE_MOCKS=true` anytime you want to run offline without starting Python.)*
 
 ---
 
-## Running the Application
+### 3. Run with Docker Compose (One-Click)
 
+Run both the frontend and backend with a single command:
 ```bash
-# Install dependencies
-npm install
+docker compose up --build
+```
+- Frontend: `http://localhost:3000`
+- Backend API & Docs: `http://localhost:8000/docs`
 
-# Start local development server
-npm run dev
+---
 
-# Run production build
-npm run build
+## 🛡️ Architecture & How It Works
+
+```
+┌────────────────────────────────────────────────────────┐
+│               Sentra React Frontend                    │
+│   (Dashboard, Asset Inventory, Graph, CVEs, Reports)   │
+└──────────────────────────┬─────────────────────────────┘
+                           │ (HTTP REST / JSON)
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│             FastAPI Backend (/api/v1)                  │
+│       CORS, Pydantic Models, Swagger OpenAPI           │
+└───────┬──────────────────┬──────────────────┬──────────┘
+        │                  │                  │
+        ▼                  ▼                  ▼
+┌──────────────┐   ┌──────────────┐   ┌──────────────────┐
+│ Recon Engine │   │ Threat Intel │   │ Evidence Reports │
+│ crt.sh (CT)  │   │  NVD CVEs    │   │  SHA-256 Seals   │
+│ DNS Resolver │   │  CISA KEV    │   │  STIX 2.1 Bundle │
+│ Port Prober  │   │  EPSS Prob   │   │  CERT-In Export  │
+└──────────────┘   └──────────────┘   └──────────────────┘
+```
+
+1. **Reconnaissance Pipeline (`/api/v1/scan`)**:
+   - `crt.sh`: Passive Certificate Transparency log queries to discover all registered subdomains without alerting the target.
+   - `DNS & Shodan`: Resolves A records, hostnames, and checks open TCP ports (80, 443, 22, 8080, etc.).
+   - `VirusTotal & HIBP`: Cross-references IP/domain reputation tags and credential leak exposure dumps.
+   - Newly discovered assets are automatically ingested into the asset inventory and reflected in the risk graph.
+
+2. **Vulnerability Correlation (`/api/v1/cves`)**:
+   - Correlates detected service versions (Ivanti, OpenSSL, Apache, Kubernetes, Envoy) with NVD CVEs.
+   - Flags active exploits with **CISA KEV** badges and computes real-world **EPSS exploitation probability**.
+
+3. **Evidence-Backed Incident Reporting & CERT-In Compliance (`/api/v1/reports`)**:
+   - Compiles incident timeline, affected assets, and evidence attachments.
+   - Generates a canonical **SHA-256 cryptographic seal** for legal chain-of-custody.
+   - Exports machine-readable **OASIS STIX 2.1** JSON bundles ready for submission to national CERTs / law enforcement.
+
+4. **Security Operations Authentication (`/api/v1/settings/api-keys`)**:
+   - Generates programmatic REST API tokens prefixed with `sn_live_...` (production) or `sn_test_...` (staging).
+   - Enforces "show once" token visibility with masked storage representations.
+
+---
+
+## 📁 Project Directory Map
+
+- **`src/`**: React application
+  - `components/`: UI components, AppShell, Sidebar, TopBar, RiskGauge, CommandPalette (`Ctrl+K`)
+  - `pages/`: Dashboard, AssetInventory, AssetDetail, AssetGraph, CVEFeed, BreachMonitor, Alerts, NewScan, Reports, Settings, Login
+  - `types/`: Strict TypeScript interfaces for all security entities
+  - `lib/api.ts`: Typed `sentraApi` client supporting both live REST and mock fallback
+- **`backend/`**: FastAPI application
+  - `app/main.py`: Application factory and route registration
+  - `app/routers/`: Individual API controllers
+  - `app/models/`: Pydantic schemas mirroring TypeScript models
+  - `app/services/`: Recon pipeline, STIX 2.1 bundle builder, and SHA-256 seal generator
+  - `app/data/`: Thread-safe persistence repository with rich pre-seeded threat datasets
+- **`Dockerfile` & `docker-compose.yml`**: Containerized deployment configurations
+
+---
+
+## 🧪 Testing the API Manually
+
+You can test any backend endpoint in PowerShell, curl, or directly via Swagger UI:
+
+```powershell
+# Check backend health
+curl http://localhost:8000/health
+
+# Get prioritized risk metrics
+curl http://localhost:8000/api/v1/dashboard/metrics
+
+# List critical assets
+curl "http://localhost:8000/api/v1/assets?severity=critical"
+
+# Export report in STIX 2.1 format for CERT-In
+curl http://localhost:8000/api/v1/reports/rep-01/export/stix
 ```
